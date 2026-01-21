@@ -85,8 +85,8 @@ class SI115X_PARAM(IntEnum):
 
 
 class grove_si115x(object):
-    def __init__(self,address = I2C_ADDR.SI115X):
-        self.bus = Bus()
+    def __init__(self,bus = 1,address = I2C_ADDR.SI115X):
+        self.bus = Bus(bus)
         self.addr = address
         self._logger = logging.getLogger('grove_si115x')
         assert self.Begin() , "Please check if the I2C device insert in I2C of Base Hat"
