@@ -159,8 +159,8 @@ class SI114X_IRQEN(IntEnum):
 
 
 class grove_si114x(object):
-    def __init__(self,address = I2C_ADDR.SI114X):
-        self.bus = Bus()
+    def __init__(self,bus = 1, address = I2C_ADDR.SI114X):
+        self.bus = Bus(bus)
         self.addr = address
         self._logger = logging.getLogger('grove_si114x')
         assert self.Begin() , "Please check if the I2C device insert in I2C of Base Hat"
